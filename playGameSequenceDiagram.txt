@@ -1,19 +1,19 @@
 @startuml
 hide footbox
-skinparam SequenceMessageAlign center
 title playGame Sequence Diagram
 
 participant ":Game" as Game
 participant "Players[i]: \n Player" as Players
 
 -> Game : playGame
-group Loop: No winner
     activate Game
+group Loop: No winner
     Game -> Game : playRound
     activate Game
-    group Ref: takeTurn
-    end
-    deactivate Game
-    deactivate Game
+    ref over Game, Players
+        takeTurn
+    end ref
 end
+    deactivate Game
+    deactivate Game
 @enduml
