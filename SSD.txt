@@ -3,8 +3,8 @@ hide footbox
 
 title "System Sequence Diagram"
 
-actor User
-participant System
+actor ":User" as User
+participant ":System" as System
 
 User -> System : Initialize
 User -> System : playGame
