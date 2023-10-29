@@ -1,0 +1,19 @@
+@startuml
+hide footbox
+skinparam SequenceMessageAlign center
+title playGame Sequence Diagram
+
+participant ":Game" as Game
+participant ":Board" as Board
+participant "Players[i]: \n Player" as Players
+
+-> Game : playGame
+activate Game
+group Loop: No winner
+    Game -> Game : playRound
+    activate Game
+    Game -> Players : takeTurn
+    deactivate Game
+    deactivate Game
+end
+@enduml
