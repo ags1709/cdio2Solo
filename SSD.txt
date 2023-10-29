@@ -1,0 +1,19 @@
+@startuml
+hide footbox
+
+title "System Sequence Diagram"
+
+actor User
+participant System
+
+User -> System : Initialize
+User -> System : playGame
+group Loop: No Winner
+    group Loop(2)
+        User -> System : takeTurn
+        User <<-- System : dice total, effects, acc balance
+    end
+end
+
+
+@enduml
