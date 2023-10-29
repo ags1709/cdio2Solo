@@ -6,14 +6,16 @@ participant ":Game" as Game
 participant "Players[i]: \n Player" as Players
 
 -> Game : playGame
-    activate Game
+    'activate Game
 group Loop: No winner
     Game -> Game : playRound
-    activate Game
+    'activate Game
+    group Loop: (#Players)
     ref over Game, Players
         takeTurn
     end ref
+    end
 end
-    deactivate Game
-    deactivate Game
+    'deactivate Game
+    'deactivate Game
 @enduml
