@@ -1,0 +1,33 @@
+@startuml
+
+hide footbox
+
+title "Domain Model"
+
+object Player
+Player : name
+Player : account
+
+object Game
+
+object Board 
+Board : boardSquares
+
+object Dice
+Dice : facevalue
+
+object BoardSquare
+BoardSquare : Name
+BoardSquare : Effect
+
+object Account
+Account : accountBalance
+
+Player "2" - "1" Game : Plays
+Game "1" - "2" Dice : Played with
+Game -- Board : Played on
+Board "1" - "11" BoardSquare : Contains
+Player -- Account : Has
+
+
+@enduml
