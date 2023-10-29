@@ -13,6 +13,9 @@ object Game
 object Board 
 Board : boardSquares
 
+object RaffleCup
+RaffleCup : Dice
+
 object Dice
 Dice : facevalue
 
@@ -24,7 +27,8 @@ object Account
 Account : accountBalance
 
 Player "2" - "1" Game : Plays
-Game "1" - "2" Dice : Played with
+Game "1" - "1" RaffleCup : Played with
+RaffleCup "1" - "2" Dice : Uses
 Game -- Board : Played on
 Board "1" - "11" BoardSquare : Contains
 Player -- Account : Has
