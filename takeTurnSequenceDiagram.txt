@@ -1,0 +1,31 @@
+@startuml
+!pragma teoz true
+hide footbox
+skinparam SequenceMessageAlign center
+
+    title takeTurn Sequence Diagram
+
+    participant "Player[i]: \nPlayer" as player
+    participant ":RaffleCup" as rafflecup
+    participant "Account" as account
+    participant "Dice[i]: \n Die" as dice
+    participant ":Board" as board
+
+group SD
+    activate player
+    -> player : takeTurn
+    activate rafflecup
+    player -> rafflecup : diceSum=getDiceSum
+    group Loop(#Die)
+    rafflecup -> dice : roll
+    end
+    rafflecup -> rafflecup : diceSum=getDiceSum
+    deactivate rafflecup
+    player -> board : square=getSquare(diceSum)
+    player -> account : modifyAccount(boardSquare.accountEffect)
+    
+    deactivate player
+end
+
+
+@enduml

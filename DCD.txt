@@ -1,0 +1,29 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Player
+class Game
+class Board {
+    -BoardSquares: BoardsSquare[11]
+    getSquare(int): BoardSquare
+}
+class BoardSquare {
+    name: String
+    accountEffect: int
+    squareText: String
+}
+class Dice {
+    faceValue: int
+    roll()
+    getFaceValue(): int
+}
+class Account {
+    accBalance: int
+    modifyAccount(accountEffect: int)
+}
+class RaffleCup {
+    -Dice: Dice[2]
+    +getDiceSum(die1: Dice, die2: Dice): int
+}
+
+@enduml
