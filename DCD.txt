@@ -1,8 +1,14 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class Player
-class Game
+class Player {
+    playerAcc: Account
+    name: String
+    displayTurnInfo()
+}
+class Game {
+    
+}
 class Board {
     -BoardSquares: BoardsSquare[11]
     getSquare(int): BoardSquare

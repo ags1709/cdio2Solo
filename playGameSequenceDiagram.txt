@@ -14,7 +14,6 @@ group Loop: No winner
     ref over Game, Players
         takeTurn
     end ref
-    Game -> Game : Display turn information
     end
 end
     'deactivate Game

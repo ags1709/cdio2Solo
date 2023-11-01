@@ -23,7 +23,7 @@ group SD
     deactivate rafflecup
     player -> board : square=getSquare(diceSum)
     player -> account : modifyAccount(boardSquare.accountEffect)
-    
+    player -> player : displayTurnInfo
     deactivate player
 end
 
